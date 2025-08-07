@@ -1,17 +1,49 @@
-<%-- 
-    Document   : viewStudent
-    Created on : Aug 7, 2025, 3:52:48 PM
-    Author     : Kashmika
---%>
+<%@ page import="java.util.*, Models.student, Servlets.StudentServlet" %>
+<%
+    String user = (String) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("../index.jsp"); // redirect if not logged in
+        return;
+    }
+%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<head>
+    <title>View Students</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/student.css">
+</head>
+<body>
+
+<h2>Student List</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>GPA</th>
+    </tr>
+    <%
+        List<student> students = StudentServlet.getStudents();
+        for (student s : students) {
+    %>
+    <tr>
+        <td><%= s.getId() %></td>
+        <td><%= s.getName() %></td>
+        <td><%= s.getEmail() %></td>
+        <td><%= s.getCourse() %></td>
+        <td><%= s.getGpa() %></td>
+    </tr>
+    <% } %>
+</table>
+
+<div class="nav">
+        <a href="dashboard.jsp">Back to Dashboard</a>
+        <a href="viewStudent.jsp">View Students</a>
+        <a href="${pageContext.request.contextPath}/logout">Logout</a>
+</div>
+</body>
 </html>

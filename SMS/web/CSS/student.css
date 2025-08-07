@@ -1,0 +1,79 @@
+body {
+    margin-left: 10px;
+    padding-right: 10px;
+    padding-top: 50px; /* Adds space from top */
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #eef2f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the top */
+    min-height: 100vh;
+}
+
+
+
+
+
+table { 
+    width: 100%;
+    border-collapse: collapse; /* This removes the space between cell borders */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Adds a subtle shadow to the table */
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the border-radius works on the corners */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+th {
+    background-color: #3f51b5; /* A primary color for the header */
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa; /* Zebra stripes for better readability */
+}
+
+tr:hover {
+    background-color: #eef2f9; /* Subtle highlight on hover */
+    cursor: pointer;
+}
+
+/* Optional: Style the first column (ID) to stand out */
+th:first-child, td:first-child {
+    font-weight: 500;
+    color: #3f51b5;
+}
+
+h2 {
+    font-size: 38px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+
+.nav {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #3f51b5;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #303f9f;
+}
